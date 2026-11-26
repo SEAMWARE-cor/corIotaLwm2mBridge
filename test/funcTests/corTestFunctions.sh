@@ -27,7 +27,7 @@ LWM2M_TEST_DIR="${LWM2M_TEST_DIR:-/tmp/iotalwm2m-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$LWM2M_BROKER" --port "$LWM2M_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$LWM2M_PORT" \
+  "$LWM2M_BROKER" --port "$LWM2M_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$LWM2M_PORT" \
                  --database ramDB --bridges "$LWM2M_PLUGIN" --bridgeConfig "$LWM2M_TEST_DIR/bridges.json" "$@" \
                  > "$LWM2M_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$LWM2M_TEST_DIR/broker.pid"
